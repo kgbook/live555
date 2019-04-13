@@ -1,6 +1,6 @@
 {
   "name": "live555",
-  "version": "1.0.0",
+  "version": "2019.03.06",
   "description": "A mirror of the live555 source code. For documentation and instructions for building this software, see <http://www.live555.com/liveMedia/>",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,6 @@
     }
   },
   "scripts": {
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s" 
   }
 }
