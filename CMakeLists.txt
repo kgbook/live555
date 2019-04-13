@@ -2,6 +2,7 @@ cmake_minimum_required (VERSION 3.7)
 
 project (live555)
 option(dbg "release or debug" OFF)
+option(shared "shared or static" OFF)
 
 set (LIVE555_VERSION_MAJOR "2019")
 set (LIVE555_VERSION_MINOR "03")
@@ -21,6 +22,12 @@ else()
     add_definitions(-DNDEBUG)
 endif ()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+
+if (shared)
+    set(lib_style "SHARED")
+else()
+    set(lib_style "STATIC")
+endif ()
 
 if (${CMAKE_HOST_SYSTEM_NAME} MATCHES Darwin)
     add_definitions(-DBSD=1 -DSOCKLEN_T=socklen_t -DHAVE_SOCKADDR_LEN=1 -DTIME_BASE=int -DNEED_XLOCALE_H=1)

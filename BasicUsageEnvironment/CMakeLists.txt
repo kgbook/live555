@@ -4,4 +4,4 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include
 
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} BasicUsageEnvironment_src)
 
-add_library(BasicUsageEnvironment STATIC ${BasicUsageEnvironment_src})
+add_library(BasicUsageEnvironment ${lib_style} ${BasicUsageEnvironment_src})
