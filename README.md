@@ -6,8 +6,6 @@ see <http://www.live555.com/liveMedia/>
 # Build
 Build project using cmake.
 
-If you do not want shared library, you should modify value of `shared` from `OFF` to `ON`.
-
 ```cmake
 mkdir build && cmake .. && make -j2 # static library by default
 ```
