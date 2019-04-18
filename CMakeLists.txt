@@ -44,7 +44,7 @@ set(live555_project
         BasicUsageEnvironment
         UsageEnvironment
 #        mediaServer
-#        testProgs      # testRelay not built well on macOS 10.14.4
+#        testProgs      # uncoment this line if needed
 #        proxyServer
         )
 
