@@ -1,7 +1,8 @@
 cmake_minimum_required (VERSION 3.7)
 
 project (live555)
-option(dbg "release or debug" OFF)
+option(dbg "release or debug" ON)
+option(linux-cross "run on target platform" ON) #linux-cross
 
 set (LIVE555_VERSION_MAJOR "2019")
 set (LIVE555_VERSION_MINOR "03")
@@ -23,7 +24,9 @@ else()
 endif ()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
-if (${CMAKE_HOST_SYSTEM_NAME} MATCHES Darwin)
+if (linux-cross)
+    add_definitions(DBSD=1 -DSOCKLEN_T=socklen_t -DNO_STRSTREAM=1 -D_LARGEFILE_SOURCE=1)
+elseif (${CMAKE_HOST_SYSTEM_NAME} MATCHES Darwin)
     add_definitions(-DBSD=1 -DSOCKLEN_T=socklen_t -DHAVE_SOCKADDR_LEN=1 -DTIME_BASE=int -DNEED_XLOCALE_H=1)
 elseif(${CMAKE_HOST_SYSTEM_NAME} MATCHES Linux)
     add_definitions(-DBSD=1 -DSOCKLEN_T=socklen_t -D_LARGEFILE_SOURCE=1 -D_FILE_OFFSET_BITS=64)
@@ -41,7 +44,7 @@ set(live555_project
         BasicUsageEnvironment
         UsageEnvironment
 #        mediaServer
-#        testProgs
+#        testProgs      # testRelay not built well on macOS 10.14.4
 #        proxyServer
         )
 
