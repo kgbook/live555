@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.7)
 
 project (live555)
 option(dbg "release or debug" ON)
-option(linux-cross "run on target platform" ON) #linux-cross
+option(linux-cross "run on target platform" OFF) #linux-cross
 
 set (LIVE555_VERSION_MAJOR "2019")
 set (LIVE555_VERSION_MINOR "03")
