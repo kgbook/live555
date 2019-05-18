@@ -4,10 +4,9 @@ For documentation and instructions for building this software,
 see <http://www.live555.com/liveMedia/>
 
 # Build
-Build project using cmake.
-
-```cmake
-mkdir build && cmake .. && make -j2 # static library by default
+```shell
+chmod +x build.sh
+bash build.sh
 ```
 
 ## Install
